@@ -1,0 +1,16 @@
+site_name: HomeLab SOC
+site_url: https://Khalid3666.github.io/homelab-soc/
+
+theme:
+  name: material
+  language: fr
+  features:
+    - navigation.sections   
+    - navigation.indexes    
+    - navigation.expand     
+    - navigation.top       
+
+# Pas de bloc « nav: » : MkDocs construit le menu automatiquement à partir de
+# l'arborescence de docs/ produite par decoupe.py. Les grands titres (dossiers)
+# apparaissent en sections, les sous-sections (pages) en retrait dessous.
+# Le libellé d'une section vient du nom de son dossier. 
