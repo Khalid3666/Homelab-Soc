@@ -1,0 +1,26 @@
+name: deploy-site
+on: 
+  push:
+    branches : 
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest      # The job will run on vm probably and will use ubuntu-latest 
+    steps:
+      - name: Checkout code     # The job will then checkout the latest version of the code from the repository
+        uses: actions/checkout@v3
+
+      - name: Install python    # It will install python so that we can use it to install mkdocs-material and build the site
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install MkDocs Material # It will install mkdocs-material
+        run: pip install mkdocs-material
+
+      - name: Build the site and deploy it #It will deploy the site of the machine and host it on github pages using the site_url I defined in the mkdocs.yml file
+        run: mkdocs gh-deploy --force
